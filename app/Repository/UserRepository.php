@@ -19,4 +19,8 @@ class UserRepository {
         return $this->Entity->createToken($token)->plainTextToken;
     }
 
+    public function favorite_tweet($tweet_id){
+        return $this->Entity->favorite_tweets()->toggle([$tweet_id]);
+    }
+
 }

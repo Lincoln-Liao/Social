@@ -42,8 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tweet(){
+    public function tweets(){
         return $this->hasMany('App\Models\Tweet');
+    }
+
+    public function favorite_tweets(){
+        return $this->belongsToMany(Tweet::class,'user_favorite_tweet_hubs')->withTimestamps();
     }
 
 }

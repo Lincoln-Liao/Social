@@ -27,4 +27,5 @@ Route::resource('tweet',TweetController::class)->only([
 
 Route::controller(UserController::class)->group(function () {
     Route::post('/user/follow', 'follow');
+    Route::post('/user/favorite_tweet', 'favorite_tweet');
 });

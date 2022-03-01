@@ -33,4 +33,10 @@ class UserService {
         ]);
     }
 
+    public function favorite_tweet($user_id,$tweet_id){
+        $User = $this->Repository->strict_search('id',$user_id)->first();
+        $this->Repository = new UserRepository($User);
+        return $this->Repository->favorite_tweet($tweet_id);
+    }
+
 }
