@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,13 @@ use App\Http\Controllers\TweetController;
 */
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/Auth/me', 'me');
+    Route::get('/auth/me', 'me');
 });
 
 Route::resource('tweet',TweetController::class)->only([
     'store'
 ]);
+
+Route::controller(UserController::class)->group(function () {
+    Route::post('/user/follow', 'follow');
+});
